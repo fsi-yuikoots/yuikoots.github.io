@@ -1,5 +1,6 @@
 CACHE MANIFEST
-# hiyoko
+#version 1.0
+
 # キャッシュマニフェストにはコメントを書ける
 
 # CACHE: でキャッシュするファイルを指定する
