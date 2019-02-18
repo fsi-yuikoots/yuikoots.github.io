@@ -1,6 +1,6 @@
 const CACHE_NAME = 'hiyoko';
 const urlsToCache = [
-	'./',
+	'./index.html',
 	'./chikuwa-hiyoko.png'
 ];
 
