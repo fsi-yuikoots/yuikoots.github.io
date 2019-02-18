@@ -3,6 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>空飛ぶひよこ</title>
+	<script>
+		var cache = window.applicationCache;
+		cache.addEventListener('noupdate', function() {
+			alert('test');
+			cache.swapCache();
+			location.reload();
+		});
+		if (navigator.onLine) {
+			try {
+				cache.update();
+			} catch (e) {
+				console.dir(e);
+			}
+		}
+	</script>
 </head>
 <body>
 	<img width="500" height="500" src="hisyou.png">

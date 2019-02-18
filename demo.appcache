@@ -4,3 +4,6 @@ CACHE MANIFEST
 CACHE:
 test.html
 hisyou.png
+
+NETWORK:
+*
