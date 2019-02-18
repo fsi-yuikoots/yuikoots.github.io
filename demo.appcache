@@ -1,9 +1,9 @@
 CACHE MANIFEST
-#version 1.0
+#version 2.0
 
 CACHE:
-test.html
-hisyou.png
+./test.html
+./hisyou.png
 
 NETWORK:
 *
