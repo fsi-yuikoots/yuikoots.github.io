@@ -1,0 +1,12 @@
+CACHE MANIFEST
+# hiyoko
+# キャッシュマニフェストにはコメントを書ける
+
+# CACHE: でキャッシュするファイルを指定する
+CACHE:
+./test.html
+./hisyou.png
+
+# NETWORK: で、常にネットワークから取得するファイルを指定する
+NETWORK:
+*
