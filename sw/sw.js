@@ -31,7 +31,7 @@ event.waitUntil(
 	);
 });
 self.addEventListener('fetch', (event) => {
-	console.info('fetch', event);
+	alert(event);
 	event.respondWith(
 	caches.match(event.request)
 	  .then((response) => {
