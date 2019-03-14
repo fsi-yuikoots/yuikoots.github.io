@@ -8,8 +8,6 @@ const urlsToCache = [
 
 //“o˜^ˆ—
 self.addEventListener('install', (event) => {
-	console.info('install', event);
-
 	event.waitUntil(
 	caches.open(CACHE_NAME)
 	  .then((cache) => {
@@ -22,8 +20,6 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-	console.info('activate', event);
-
 var cacheWhitelist = [CACHE_NAME];
 
 event.waitUntil(
@@ -41,15 +37,13 @@ event.waitUntil(
 });
 
 self.addEventListener('fetch', (event) => {
-	console.info('fetch', event);
-
+/*
 	event.respondWith(
 	caches.match(event.request)
 	  .then((response) => {
 		  if (response) {
 		  	return response;
 		  }
-
 
 		let fetchRequest = event.request.clone();
 
@@ -69,4 +63,19 @@ self.addEventListener('fetch', (event) => {
 			});
 		})
 	);
+*/
+	if (event.request.url.endsWith('chikuwa-hiyoko.png')) {
+		event.respondWith(
+			fetch('chikuwa-hiyoko.png').catch(error => self.caches.match('halo_image8.png'))
+		);
+	} else {
+		event.respondWith(
+			self.caches.match(event.request).then(response => {
+				if (response)
+					return response;
+				console.log("Worker: No response", event.request);
+				return fetch(event.request);
+			})
+		);
+	}
 });
