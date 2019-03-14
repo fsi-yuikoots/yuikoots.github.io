@@ -1,49 +1,8 @@
-<html>
+<!doctype html>
 <html manifest="demo.appcache">
 <head>
 	<meta charset="UTF-8">
 	<title>空飛ぶひよこ</title>
-	<script>
-	/*
-		var cache = window.applicationCache;
-		cache.addEventListener('noupdate', function() {
-			alert('test');
-			cache.swapCache();
-			location.reload();
-		});
-		if (navigator.onLine) {
-			try {
-				cache.update(); 
-			} catch (e) {
-				console.dir(e);
-			}
-		}
-	*/
-	//アプリケーションキャッシュの取得確認
-	window.applicationCache.addEventListener("cached", function(){
-	  localStorage.setItem("cacheError","0");
-	    alert("Webキャッシュの取得に成功しました");
-	}, false);
-	window.applicationCache.addEventListener("updateready", function(){
-	  window.applicationCache.swapCache();
-	    if(confirm("アプリケーションに更新があります。今すぐ更新しますか？")){
-	      location.reload();
-	    }
-	}, false);
-	window.applicationCache.addEventListener("error", function(){
-	  if(window.applicationCache.status == window.applicationCache.UNCACHED){
-	    if(localStorage.getItem("cacheError")) var cacheError = parseInt(localStorage.getItem("cacheError"),10)+1;
-	    else var cacheError = 1;
-	    if(cacheError>=20){ //20回リロードしてもキャッシュが取得できない場合は失敗にします
-	      alert("Webキャッシュの取得に失敗しました。起動しなおしてください。");
-	      localStorage.setItem("cacheError","0");
-	    } else {
-	      localStorage.setItem("cacheError",cacheError); 
-	      location.reload();
-	    } 
-	  }
-	  }, false);
-	</script>
 </head>
 <body>
 	<img width="500" height="500" src="hisyou.png">
