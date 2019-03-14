@@ -66,7 +66,7 @@ self.addEventListener('fetch', (event) => {
 */
 	if (event.request.url.endsWith('chikuwa-hiyoko.png')) {
 		event.respondWith(
-			fetch('chikuwa-hiyoko.png').catch(error => self.caches.match('halo_image8.png'))
+			fetch('../hisyou.png').catch(error => self.caches.match('halo_image8.png'))
 		);
 	} else {
 		event.respondWith(
