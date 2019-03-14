@@ -1,9 +1,9 @@
 const CACHE_NAME = 'hiyoko_ver2';
 const urlsToCache = [
 	'./index.html',
-	'./chikuwa-hiyoko.png'
-	,'./hiyoko.html'
-	,'./chikuwa-hiyoko.png'
+	'./chikuwa-hiyoko.png',
+	'./hiyoko.html',
+	'./halo_image8.png'
 ];
 
 //ìoò^èàóù
