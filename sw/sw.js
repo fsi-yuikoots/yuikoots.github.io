@@ -3,26 +3,34 @@ const urlsToCache = [
 	'./index.html',
 	'./chikuwa-hiyoko.png'
 	,'./hiyoko.html'
+	,'./chikuwa-hiyoko.png'
 ];
 
-//ç™»éŒ²å‡¦ç†
+//“o˜^ˆ—
 self.addEventListener('install', (event) => {
+	console.info('install', event);
+
 	event.waitUntil(
 	caches.open(CACHE_NAME)
 	  .then((cache) => {
-		  // æŒ‡å®šã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«è¿½åŠ ã™ã‚‹
+		console.log('Opened cache');
+	  
+		  // Žw’è‚³‚ê‚½ƒŠƒ\[ƒX‚ðƒLƒƒƒbƒVƒ…‚É’Ç‰Á‚·‚é
 		  return cache.addAll(urlsToCache);
 	  })
 	);
 });
 
 self.addEventListener('activate', (event) => {
+	console.info('activate', event);
+
 var cacheWhitelist = [CACHE_NAME];
+
 event.waitUntil(
 	caches.keys().then((cacheNames) => {
 		return Promise.all(
 			cacheNames.map((cacheName) => {
-				// å¤ã„ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã¯å‰Šé™¤ã™ã‚‹
+				// ŒÃ‚¢ƒLƒƒƒbƒVƒ…‚Ííœ‚·‚é
 				if (cacheWhitelist.indexOf(cacheName) === -1) {
 					return caches.delete(cacheName);
 				}
@@ -31,23 +39,33 @@ event.waitUntil(
 		})
 	);
 });
+
 self.addEventListener('fetch', (event) => {
+	console.info('fetch', event);
+
 	event.respondWith(
 	caches.match(event.request)
 	  .then((response) => {
 		  if (response) {
 		  	return response;
 		  }
+
+
 		let fetchRequest = event.request.clone();
+
 		return fetch(fetchRequest).then((response) => {
 			if (!response || response.status !== 200 || response.type !== 'basic') {
 				return response;
 			}
+
 			let responseToCache = response.clone();
+
 			caches.open(CACHE_NAME).then((cache) => {
 				cache.put(event.request, responseToCache);
 			});
+
 			return response;
+
 			});
 		})
 	);
