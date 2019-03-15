@@ -52,6 +52,6 @@ self.addEventListener('fetch', (event) => {
 */
 
 	event.respondWith(
-			return fetch("<html><h1>HELLO!!WORLD</h1></html>");
+		fetch("<html><h1>HELLO!!WORLD</h1></html>").catch(error => self.caches.match('./hiyoko.html'))
 	);
 });
