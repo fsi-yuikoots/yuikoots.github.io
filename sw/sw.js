@@ -1,6 +1,6 @@
 const CACHE_NAME = 'hiyoko_ver2';
 const urlsToCache = [
-	'./index.html',
+	'./hiyoko.html',
 	'./halo_image8.png'
 ];
 
@@ -62,9 +62,9 @@ self.addEventListener('fetch', (event) => {
 		})
 	);
 */
-	if (event.request.url.endsWith('chikuwa-hiyoko.png')) {
+	if (event.request.url.endsWith('index.html')) {
 		event.respondWith(
-			fetch('../hisyou.png').catch(error => self.caches.match('./halo_image8.png'))
+			fetch('index.html').catch(error => self.caches.match('./hiyoko.html'))
 		);
 	} else {
 		event.respondWith(
