@@ -35,7 +35,7 @@ event.waitUntil(
 });
 
 self.addEventListener('fetch', (event) => {
-	console.log(event.request.url);
+/*
 	if (event.request.url.endsWith('chikuwa-hiyoko.png')) {
 		event.respondWith(
 			fetch('../hisyou.png').catch(error => self.caches.match('halo_image8.png'))
@@ -49,4 +49,9 @@ self.addEventListener('fetch', (event) => {
 			})
 		);
 	}
+*/
+
+	event.respondWith(
+			return "<html><h1>HELLO!!WORLD</h1></html>"
+	);
 });
