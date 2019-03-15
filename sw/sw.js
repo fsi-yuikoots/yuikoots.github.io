@@ -4,14 +4,14 @@ const urlsToCache = [
 	'./halo_image8.png'
 ];
 
-//“o˜^ˆ—
+//ç™»éŒ²å‡¦ç†
 self.addEventListener('install', (event) => {
 	event.waitUntil(
 	caches.open(CACHE_NAME)
 	  .then((cache) => {
 		console.log('Opened cache');
 	  
-		  // Žw’è‚³‚ê‚½ƒŠƒ\[ƒX‚ðƒLƒƒƒbƒVƒ…‚É’Ç‰Á‚·‚é
+		  // æŒ‡å®šã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«è¿½åŠ ã™ã‚‹
 		  return cache.addAll(urlsToCache);
 	  })
 	);
@@ -24,7 +24,7 @@ event.waitUntil(
 	caches.keys().then((cacheNames) => {
 		return Promise.all(
 			cacheNames.map((cacheName) => {
-				// ŒÃ‚¢ƒLƒƒƒbƒVƒ…‚Ííœ‚·‚é
+				// å¤ã„ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã¯å‰Šé™¤ã™ã‚‹
 				if (cacheWhitelist.indexOf(cacheName) === -1) {
 					return caches.delete(cacheName);
 				}
@@ -35,7 +35,7 @@ event.waitUntil(
 });
 
 self.addEventListener('fetch', (event) => {
-	console.log("‚Æ‚Á‚Ä‚«‚Ä‚é‚ÌF",event.request)
+	console.log("ã¨ã£ã¦ãã¦ã‚‹ã®ï¼š",event.request)
 	if (event.request.url.endsWith('chikuwa-hiyoko.png')) {
 		event.respondWith(
 			fetch('../hisyou.png').catch(error => self.caches.match('halo_image8.png'))
