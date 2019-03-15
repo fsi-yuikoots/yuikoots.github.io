@@ -35,7 +35,7 @@ event.waitUntil(
 });
 
 self.addEventListener('fetch', (event) => {
-	console.log(response.url)
+	console.log(event.request.url);
 	if (event.request.url.endsWith('chikuwa-hiyoko.png')) {
 		event.respondWith(
 			fetch('../hisyou.png').catch(error => self.caches.match('halo_image8.png'))
