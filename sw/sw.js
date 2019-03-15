@@ -52,6 +52,6 @@ self.addEventListener('fetch', (event) => {
 */
 
 	event.respondWith(
-			return "<html><h1>HELLO!!WORLD</h1></html>"
+			return "<html><h1>HELLO!!WORLD</h1></html>";
 	);
 });
