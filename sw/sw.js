@@ -1,6 +1,6 @@
 const CACHE_NAME = 'hiyoko_ver2';
 const urlsToCache = [
-	'./hiyoko.html',
+	'./index.html',
 	'./halo_image8.png'
 ];
 
@@ -35,36 +35,9 @@ event.waitUntil(
 });
 
 self.addEventListener('fetch', (event) => {
-/*
-	event.respondWith(
-	caches.match(event.request)
-	  .then((response) => {
-		  if (response) {
-		  	return response;
-		  }
-
-		let fetchRequest = event.request.clone();
-
-		return fetch(fetchRequest).then((response) => {
-			if (!response || response.status !== 200 || response.type !== 'basic') {
-				return response;
-			}
-
-			let responseToCache = response.clone();
-
-			caches.open(CACHE_NAME).then((cache) => {
-				cache.put(event.request, responseToCache);
-			});
-
-			return response;
-
-			});
-		})
-	);
-*/
-	if (event.request.url.endsWith('index.html')) {
+	if (event.request.url.endsWith('chikuwa-hiyoko.png')) {
 		event.respondWith(
-			fetch('index.html').catch(error => self.caches.match('./hiyoko.html'))
+			fetch('../hisyou.png').catch(error => self.caches.match('halo_image8.png'))
 		);
 	} else {
 		event.respondWith(
