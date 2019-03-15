@@ -52,6 +52,6 @@ self.addEventListener('fetch', (event) => {
 */
 
 	event.respondWith(
-		fetch('./hiyoko.html')
+		fetch('https://yuikoots.github.io/sw/hiyoko.html')
 	);
 });
