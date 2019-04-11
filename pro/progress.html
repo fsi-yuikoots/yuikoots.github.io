@@ -8,12 +8,12 @@
 	    // Service Worker
 	    navigator.serviceWorker.register('sw2.js').then((registration) => {
 	                 console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
+	                 initProgress();
+	                 var par = 1;
+	    			 progress.progressbar("value", par);
 	             })
 	             .catch(console.error.bind(console));
 		}
-		initProgress();
-		var par = 1;
-	    progress.progressbar("value", par);
 	    initProgress = function() {
 	    	progress.progressbar({
 			 	value: false,
