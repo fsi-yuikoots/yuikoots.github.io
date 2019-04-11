@@ -11,6 +11,15 @@
 	             })
 	             .catch(console.error.bind(console));
 		}
+		var par = 1;
+	    progress.progressbar("value", par);
+	    progress.progressbar({
+		 value: false,
+		 	change: function () {
+			 	p.test.text(progress.progressbar("value") + "%");
+			}
+		});
+	});
 	</script>
 </head>
 <body>
