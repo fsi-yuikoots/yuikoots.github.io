@@ -11,10 +11,10 @@
 	             })
 	             .catch(console.error.bind(console));
 		}
-		sw.initProgress();
+		initProgress();
 		var par = 1;
 	    progress.progressbar("value", par);
-	    appCache.initProgress = function() {
+	    initProgress = function() {
 	    	progress.progressbar({
 			 	value: false,
 			 	change: function () {
