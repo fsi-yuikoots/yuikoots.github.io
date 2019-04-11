@@ -8,7 +8,7 @@
 	    // Service Worker
 	    navigator.serviceWorker.register('sw2.js').then((registration) => {
 	                 console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
-	                 document.getElementById("test").innerText = "1";
+	                 document.getElementById("test").innerText = Date.now();
 	             })
 	             .catch(console.error.bind(console));
 		}
