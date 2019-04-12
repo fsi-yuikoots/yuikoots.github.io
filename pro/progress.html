@@ -8,11 +8,10 @@
 	    // Service Worker
 	    navigator.serviceWorker.register('sw2.js').then((registration) => {
 	                 console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
-	                 document.getElementById("test").innerText = Date.now();
 	             })
 	             .catch(console.error.bind(console));
 		}
-		var worker = new Worker('worker.js');
+		var worker = new Worker('sw2.js');
 		worker.onmessage = function (event) {
 			document.getElementById('test').textContent = event.data;
 		};
