@@ -53,11 +53,21 @@ self.addEventListener('fetch', (event) => {
 	);
 });
 
-var n = 1;
-search: while (true) {
-	n += 1;
-	for (var i = 2; i <= Math.sqrt(n); i += 1)
-		if (n % i == 0)
-			continue search;
-			postMessage(n);
-}
+let post;
+let count = 0;
+self.addEventListener('message', (event) => {
+	const { type } = ev.data;
+	
+	switch(type){
+	
+		case 'office':
+			post = ev.posts[0];
+			break;
+		case '++':
+			count++;
+			break;
+	
+	}
+	
+	post && post.postMessage(count);
+});

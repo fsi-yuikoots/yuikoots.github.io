@@ -8,13 +8,19 @@
 	    // Service Worker
 	    navigator.serviceWorker.register('sw2.js').then((registration) => {
 	                 console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
+	                 const ctrl = navigator.serviceWorker.controller;
+	                 const { post1, post2 } = new MessageChannel();
+	                 
+	                 post1.onmessge = event => {
+	                 	document.getElementById('test').textContent = event.data;
+	                 };
+	                 ctrl.postMessage({ type: 'office' },[ post2 ]);
+	                 while(true){
+	                 	ctrl.postMessage({ type: '++'});
+	                 }
 	             })
 	             .catch(console.error.bind(console));
 		}
-		var worker = new Worker('sw2.js');
-		worker.onmessage = function (event) {
-			document.getElementById('test').textContent = event.data;
-		};
 	</script>
 </head>
 <body>
