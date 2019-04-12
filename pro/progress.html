@@ -11,7 +11,7 @@
 	                 const ctrl = navigator.serviceWorker.controller;
 	                 const { post1, post2 } = new MessageChannel();
 	                 
-	                 post1.onmessage = event => {
+	                 messageChannel.post1.onmessage = event => {
 	                 	document.getElementById('test').textContent = event.data;
 	                 };
 	                 ctrl.postMessage({ type: 'office' },[ post2 ]);
