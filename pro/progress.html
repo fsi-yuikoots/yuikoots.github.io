@@ -12,6 +12,10 @@
 	             })
 	             .catch(console.error.bind(console));
 		}
+		var worker = new Worker('worker.js');
+		worker.onmessage = function (event) {
+			document.getElementById('test').textContent = event.data;
+		};
 	</script>
 </head>
 <body>
